@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>NoteManager</title>
+		<link rel="stylesheet" type="text/css" href="stylesheet.css">
+		<link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
+    </head>
+    <body>
+	<script src="script.js"></script>
+
+	<div id="overlayBackground"></div>
+	<div id="overlay">
+		<div id="dialog">
+			<p id="dialogText" style="font-weight: bold">Content</p>
+			<p id="labelInput1">Aufgabe: </p><input id="input1" type="text" value="test" /><br>
+			<p id="labelInput2">Beschreibung: </p><textarea id="input2"></textarea><br><br>
+			<div id="buttonArea"><div id="buttonWrapper">
+			<input id="btnOK" class="button" type="button" value="OK" onclick="closeDialog('OK')" />
+			<input id="btnCancel" class="button" type="button" value="Abbrechen" onclick="closeDialog('CANCEL')" />
+			</div></div>
+		</div>
+	</div>
+
+
+
+		<div id="wrapper">
+			<h1>NotesManager</h1>
+			<div class="column" ondrop="drop(event)" ondragover="allowDrop(event)" id="column1">
+				<div class="column-header">
+					<h2><span>Ausstehend</span><span class="iconBig"><i class="fa fa-plus-circle" aria-hidden="true" title="Aufgabe hinzufügen" onclick="clickAdd(this)"></i></span></h2>
+				</div>
+
+
+
+			</div>
+
+			<div class="column" ondrop="drop(event)" ondragover="allowDrop(event)" id="column2">
+				<div class="column-header">
+					<h2><span>In Bearbeitung</span><span class="iconBig"><i class="fa fa-plus-circle" aria-hidden="true" title="Aufgabe hinzufügen" onclick="clickAdd(this)"></i></span></h2>
+				</div>
+			</div>
+
+			<div class="column" ondrop="drop(event)" ondragover="allowDrop(event)" id="column3">
+				<div class="column-header">
+					<h2><span>Abgeschlossen</span><span class="iconBig"><i class="fa fa-plus-circle" aria-hidden="true" title="Aufgabe hinzufügen" onclick="clickAdd(this)"></i></span></h2>
+				</div>
+			</div>
+		</div>
+    </body>
+</html>
