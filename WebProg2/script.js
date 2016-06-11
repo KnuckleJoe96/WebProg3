@@ -59,7 +59,6 @@ function showDialog(dialogText, labelInput1, labelInput2){
     overlayBackground.style.visibility = "visible";
     var overlay = document.getElementById("overlay");
     overlay.style.visibility = "visible";
-
 }
 
 function closeDialog(dialogResult){
@@ -204,6 +203,16 @@ function addWorkItem(column, workItemTitle, workItemDescription){
 
     column.appendChild(workItem);
     workItem.scrollIntoView(false);
+
+    //===================================================
+    column;
+    workItemTitle;
+    workItemDescription;
+
+    let ajax = new XMLHttpRequest();
+    ajax.open("PUT", "http://localhost/WebProg3/updateScript.php", true);
+    ajax.send();
+    //===================================================
 }
 
 function editWorkItem(workItem, workItemTitle, workItemDescription){
