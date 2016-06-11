@@ -205,13 +205,20 @@ function addWorkItem(column, workItemTitle, workItemDescription){
     workItem.scrollIntoView(false);
 
     //===================================================
-    column;
-    workItemTitle;
-    workItemDescription;
-
     let ajax = new XMLHttpRequest();
-    ajax.open("PUT", "http://localhost/WebProg3/updateScript.php", true);
-    ajax.send();
+
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState == 4 && ajax.status == 200) {
+            document.title = "Update successful" ; 
+            let myDiv = document.createElement('div');
+            myDiv.innerHTML = ajax.responseText;
+            document.getElementById("column2").appendChild(myDiv);
+        }
+    };
+    console.log(column);
+    ajax.open("POST", "http://localhost/WebProg3/update.php", true);
+    ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    ajax.send('column='+ column + '&title=' + workItemTitle + '&description=' + workItemDescription);
     //===================================================
 }
 
