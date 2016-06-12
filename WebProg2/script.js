@@ -204,22 +204,32 @@ function addWorkItem(column, workItemTitle, workItemDescription){
     column.appendChild(workItem);
     workItem.scrollIntoView(false);
 
+
     //===================================================
+
+
     let ajax = new XMLHttpRequest();
 
     ajax.onreadystatechange = function() {
         if (ajax.readyState == 4 && ajax.status == 200) {
             document.title = "Update successful" ; 
+
             let myDiv = document.createElement('div');
-            myDiv.innerHTML = ajax.responseText;
-            document.getElementById("column2").appendChild(myDiv);
+            let response = ajax.responseText.split("|");
+
+            myDiv.innerHTML = response[1];
+            document.getElementById(response[0]).appendChild(myDiv);
         }
     };
     console.log(column);
     ajax.open("POST", "http://localhost/WebProg3/update.php", true);
     ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    ajax.send('column='+ column + '&title=' + workItemTitle + '&description=' + workItemDescription);
+    ajax.send('column='+ column.id + '&title=' + workItemTitle + '&description=' + workItemDescription);
+
+
     //===================================================
+
+
 }
 
 function editWorkItem(workItem, workItemTitle, workItemDescription){

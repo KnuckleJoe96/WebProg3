@@ -9,7 +9,7 @@ try {
   		echo "Insert successful";
   	}
 
-  	var_dump($mySQLInput);
+  	//var_dump($mySQLInput);
 } catch (PDOException $e) { 
   	echo "Datenbankfehler.";
 }
@@ -17,15 +17,17 @@ try {
 
 
 
-/*
+
+echo $_POST['column'].'|';
+
 echo '<div id="workItem0" class="workItem" ondragstart="drag(event)" draggable="true">
 		<h3>
-			<span>asdf</span>
+			<span>'.$_POST['title'].'</span>
 			<span class="iconSmall">
 				<i onclick="clickEditWorkItem(this)" title="Aufgabe bearbeiten" aria-hidden="true" class="fa fa-pencil"></i>
 			</span>
 		</h3>
-		<p>afsd</p>
+		<p>'.$_POST['description'].'</p>
 		<div class="seperator"></div>
 		<div id="workers">
 			<h4>
@@ -58,5 +60,5 @@ echo '<div id="workItem0" class="workItem" ondragstart="drag(event)" draggable="
 		<ul style="display: none;" id="discussionList"></ul>
 		</div>
 	</div>';
-	*/
+	
 ?>
